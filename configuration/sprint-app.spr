@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="1234567890" name="app" metaversion="3">
+	<properties>
+		<title replace="false">
+			<defaultLocale locale="ru"/>
+			<locales>
+				<value locale="ru" type="STRING"><![CDATA[app]]></value>
+			</locales>
+		</title>
+
+		<code><![CDATA[app]]></code>
+
+		<enabled>true</enabled>
+
+		<guest>false</guest>
+
+		<htmlHeader><![CDATA[]]></htmlHeader>
+	</properties>
+
+	<defaultLocale language="ru"/>
+
+	<locales/>
+
+	<references/>
+
+	<components>
+		<component id="72935d01-42fb-4aa4-9b4c-7f958cf7d135" name="BorderContainer" type="BorderContainerBuilder">
+			<properties>
+
+			</properties>
+
+			<children/>
+
+			<events/>
+		</component>
+	</components>
+
+	<freeComponents/>
+
+	<datasources/>
+
+	<groups/>
+
+	<rights>
+		<tableRights/>
+
+		<tableColumnRights/>
+
+		<eventRihgts/>
+	</rights>
+</application>

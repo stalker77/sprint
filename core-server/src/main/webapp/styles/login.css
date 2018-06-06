@@ -1,0 +1,184 @@
+html {
+	/*background-color: #b6b7bc;*/
+	padding: 0;
+}
+
+body {
+	font-size: .80em;
+	font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+	padding: 0px;
+	color: #696969;
+	-ms-overflow-x: hidden;
+}
+
+/*for Chrome: remove yellow frame on focused controls: */
+input:focus, select:focus, button:focus, a:focus {
+  outline: none;
+}
+
+/*for Chrome: remove blue frame on active tab jquery-ui tabs control: */
+li a.ui-tabs-anchor {
+  outline-color: transparent;
+}
+
+.app-ui-roundborder {
+  border: 1px solid #999999;
+  border-radius: 10px !important;
+  /*padding: 4px;*/
+}
+
+.app-ui-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0 0 0 4px;
+}
+
+.app-ui-fieldset-list {
+  list-style: none;
+  padding: 0;
+}
+
+.app-ui-fieldset-list li {
+  padding-bottom: 5px;
+}
+
+.app-ui-label {
+  display: inline;
+  font-size: 1.2em;
+}
+
+.app-ui-textbox,
+.app-ui-textarea,
+.app-ui-button,
+.app-ui-spinner {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	 -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+		  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.app-ui-textbox,
+.app-ui-textarea,
+.app-ui-button {
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+
+.app-ui-button {
+  font-size: 1.2em;
+  height: 30px;
+  margin-right: 4px;
+  padding: 4px;
+
+  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);*/
+  -webkit-box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+	 -moz-box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+		  box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s, background linear 0.2s, color linear 0.2s;
+	 -moz-transition: border linear 0.2s, box-shadow linear 0.2s, background linear 0.2s, color linear 0.2s;
+	   -o-transition: border linear 0.2s, box-shadow linear 0.2s, background linear 0.2s, color linear 0.2s;
+		  transition: border linear 0.2s, box-shadow linear 0.2s, background linear 0.2s, color linear 0.2s;
+}
+
+.app-ui-textbox:focus,
+.app-ui-textarea:focus,
+.app-ui-spinner-focus {
+  border: 1px solid #9c7cbd;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(156, 124, 189, 0.6);
+	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(156, 124, 189, 0.6);
+		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(156, 124, 189, 0.6);
+}
+
+.app-ui-textbox:hover,
+.app-ui-textarea:hover,
+.app-ui-imgbutton:hover,
+.app-ui-spinner:hover {
+  border: 1px solid #ba55d3;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(186, 85, 211, 0.6);
+	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(186, 85, 211, 0.6);
+		  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(186, 85, 211, 0.6);
+}
+
+.app-ui-button:hover {
+	border: 1px solid #ba55d3;
+
+	-webkit-box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+        	 -moz-box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+        		  box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(186, 85, 211, 0.6);
+}
+
+.app-ui-button:active {
+	border: 1px solid #ba55d3;
+
+	-webkit-box-shadow: inset 0 15px 17px rgba(0, 0, 0, 0.1);
+    	 -moz-box-shadow: inset 0 15px 17px rgba(0, 0, 0, 0.1);
+    		  box-shadow: inset 0 15px 17px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(186, 85, 211, 0.6);;
+    		  transform: translateY(1px);
+}
+
+.app-ui-textbox {
+  font-size: 1.2em;
+  margin: 5px 0 6px 0;
+  padding: 5px;
+  height:20px;
+  /*width: 300px;*/
+}
+
+/*input[type="submit"],
+input[type="button"],
+button {
+  box-shadow: inset 0 -15px 17px rgba(0, 0, 0, 0.1);
+  height: 30px;
+}*/
+
+.app-ui-center {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.login-wnd {
+	width: 300px;
+	height: 173px;
+	box-shadow: 0 0 15px #777;
+}
+
+.login-wnd-title-panel {
+	margin: auto;
+	width: 119px;
+	width: 300px;
+	background-color: #648ca5;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.login-wnd-title-panel-text {
+	margin: auto;
+	width: 143px;
+	color: white;
+	font-size: 1.2em;
+	height: 21px;
+}
+
+.login-wnd-content {
+	padding: 4px;
+}
+
+.login-wnd-content-fieldset {
+	height: 150px;
+}
+
+.login-wnd-content-fieldset-button-panel {
+	margin: auto;width: 90px;
+}
+
+.login-wnd-content-loginbtn {
+	width: 90px;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified">
+	<xs:element name = 'configuration'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = 'core-datasource'>
+					<xs:complexType>
+						<xs:attribute name="dsName" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application name="Тестовое приложение">
+	<components>
+		<visuals>
+			<component id="123" type="MainComponent">
+				<childComponents>
+					<component id="111" type=""></component>
+				</childComponents>
+			</component>
+		</visuals>
+
+		<nonvisuals>
+			<component id="456" type="RestClient">
+				<properties>
+					<property name="ResourceUrl">http://localhost/rest/files</property>
+					<property name="Method">GET</property>
+					<property name="ResultType">JSON</property>
+				</properties>
+				<events>
+					<event type="OnReceive">
+
+					</event>
+					<event type="OnError">
+
+					</event>
+				</events>
+			</component>
+		</nonvisuals>
+	</components>
+</application>

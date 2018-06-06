@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+	<xs:element name = 'sprint'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = 'applications' type = 'ApplicationsType' maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="ApplicationsType">
+		<xs:sequence>
+			<xs:element name = 'application' type = 'ApplicationType' maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ApplicationType">
+		<xs:attribute name="serverId" type="xs:string"/>
+		<xs:attribute name="configurationFilePath" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

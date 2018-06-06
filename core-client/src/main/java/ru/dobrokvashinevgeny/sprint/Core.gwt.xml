@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<module rename-to = 'application'>
+	<!-- Inherit the core Web Toolkit stuff.                        -->
+	<inherits name = 'com.google.gwt.user.User'/>
+	<inherits name="com.google.gwt.json.JSON" />
+	<inherits name="com.google.gwt.http.HTTP"/>
+	<inherits name="ru.dobrokvashinevgeny.sprint.Core"/>
+
+	<!-- Inherit the default GWT style sheet.  You can change       -->
+	<!-- the theme of your GWT application by uncommenting          -->
+	<!-- any one of the following lines.                            -->
+	<!--<inherits name = 'com.google.gwt.user.theme.clean.Clean'/>  -->
+	<!-- <inherits name = 'com.google.gwt.user.theme.chrome.Chrome'/> -->
+	<!-- <inherits name = 'com.google.gwt.user.theme.dark.Dark'/>     -->
+
+	<!-- Other module inherits                                      -->
+	<inherits name="com.google.gwt.logging.Logging"/>
+	<inherits name='com.sencha.gxt.ui.GXT' />
+	<stylesheet src="reset.css" />
+	<!--<inherits name="com.sencha.gxt.theme.blue.Theme" />-->
+
+	<!--<set-property name="gxt.user.agent" value="gecko1_9" />-->
+	<set-property name="gxt.device" value="desktop" />
+	<set-property name="gxt.user.agent" value="chrome" />
+
+	<!-- Specify the app entry point class.                         -->
+	<entry-point class = 'ru.dobrokvashinevgeny.sprint.infrastructure.presentation.MainEntryPoint'/>
+
+	<!-- Specify the paths for translatable code                    -->
+	<source path = ''/>
+	<source path = 'application'/>
+	<source path = 'infrastructure'/>
+	<source path = 'presentation'/>
+	<source path = 'services'/>
+</module>

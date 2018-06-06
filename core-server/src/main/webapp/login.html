@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Вход в приложение</title>
+	<link rel="stylesheet" href="styles/login.css"/>
+</head>
+<body>
+	<div id="loginWindow" class="app-ui-roundborder app-ui-center login-wnd">
+		<div class="login-wnd-title-panel">
+			<div class="login-wnd-title-panel-text">Вход в приложение</div>
+		</div>
+		<div class="login-wnd-content">
+			<form action="">
+				<fieldset class="app-ui-fieldset login-wnd-content-fieldset">
+					<ol class="app-ui-fieldset-list">
+						<li>
+							<label id="loginLabel" class="app-ui-label">Логин:</label>
+							<input id="loginField" type="text" class="app-ui-textbox" placeholder="Ваш логин" value=""/>
+						</li>
+						<li>
+							<label id="pswLabel" class="app-ui-label">Пароль:</label>
+							<input id="pswField" type="password" class="app-ui-textbox" placeholder="Ваш пароль"
+								   value=""/>
+						</li>
+						<li>
+							<div class="login-wnd-content-fieldset-button-panel">
+								<input id="loginButton" type="submit" class="app-ui-button login-wnd-content-loginbtn"
+									   value="Войти"/>
+							</div>
+						</li>
+					</ol>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
