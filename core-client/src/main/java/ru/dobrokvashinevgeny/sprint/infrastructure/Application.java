@@ -7,6 +7,7 @@ package ru.dobrokvashinevgeny.sprint.infrastructure;
 import ru.dobrokvashinevgeny.sprint.infrastructure.services.identityaccess.GwtUserAuthorizationService;
 import ru.dobrokvashinevgeny.sprint.services.*;
 import ru.dobrokvashinevgeny.sprint.services.identityaccess.AuthorizedUserController;
+import ru.dobrokvashinevgeny.sprint.services.registry.*;
 
 /**
  * Класс Application

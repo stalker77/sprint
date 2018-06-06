@@ -182,7 +182,5 @@ public abstract class GuiComponent extends Component {
 		/* in GuiComponent it is empty */
 	}
 
-	public boolean isContainer() {
-		return false;
-	}
+	public abstract ComponentRuntimeInfo getRuntimeInfo();
 }

@@ -8,6 +8,7 @@ import com.google.gwt.http.client.*;
 import com.google.gwt.json.client.*;
 import ru.dobrokvashinevgeny.sprint.domain.model.ComponentApplication;
 import ru.dobrokvashinevgeny.sprint.services.*;
+import ru.dobrokvashinevgeny.sprint.services.registry.*;
 
 /**
  * Класс GwtApplicationModelService
@@ -15,6 +16,12 @@ import ru.dobrokvashinevgeny.sprint.services.*;
 public class GwtApplicationModelService {
 	private final String APP_BASE_RESOURCE_URI = "rest/application/";
 	private final String APP_MODEL_RESOURCE_URI = "/model/current";
+
+	private final ControllersRegistry controllersRegistry;
+
+	public GwtApplicationModelService(ControllersRegistry controllersRegistry) {
+		this.controllersRegistry = controllersRegistry;
+	}
 
 	public void appModelFromCodeTo(String appCode, ApplicationModelController controller) {
 		RequestBuilder request = GwtRestClientFactory.createGetRequestTo(appModelResourceFor(appCode));
@@ -55,7 +62,7 @@ public class GwtApplicationModelService {
 		boolean enabled = getBooleanPropertyFrom(appModelDescriptorObject, "enabled");
 		boolean guest = getBooleanPropertyFrom(appModelDescriptorObject, "guest");
 		final String htmlHeader = getStringPropertyFrom(appModelDescriptorObject, "htmlHeader");
-		return new ComponentApplication(/*title, code, enabled, guest, htmlHeader*/);
+		return new ComponentApplication(/*title, code, enabled, guest, htmlHeader*/ controllersRegistry);
 	}
 
 	private String getStringPropertyFrom(JSONObject appModelDescriptorObject, String propertyName) {

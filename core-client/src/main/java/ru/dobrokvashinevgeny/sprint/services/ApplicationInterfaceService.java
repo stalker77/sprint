@@ -18,7 +18,7 @@ public class ApplicationInterfaceService {
 
 
 	public void createApplicationInterfaceFrom(ComponentApplication componentApplication) {
-		componentApplication.buildChildComponents();
+		componentApplication.build();
 
 		displayEngine.showCurrentViewport();
 	}

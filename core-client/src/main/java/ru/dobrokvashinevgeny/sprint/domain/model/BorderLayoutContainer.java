@@ -6,6 +6,7 @@ package ru.dobrokvashinevgeny.sprint.domain.model;
 
 import ru.dobrokvashinevgeny.sprint.services.*;
 import ru.dobrokvashinevgeny.sprint.services.borderlayout.BorderLayoutViewController;
+import ru.dobrokvashinevgeny.sprint.services.registry.ControllersRegistry;
 
 import java.util.List;
 
@@ -35,5 +36,11 @@ public class BorderLayoutContainer extends Container {
 	@Override
 	protected void locateInOwnerController(BaseViewContainerController ownerController) {
 		ownerController.addChildView(controller.getView());
+	}
+
+	@Override
+	public ComponentRuntimeInfo getRuntimeInfo() {
+		final BaseView view = controller.getView();
+		return new ComponentRuntimeInfo(view.getId());
 	}
 }

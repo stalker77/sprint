@@ -36,9 +36,4 @@ public abstract class Container extends GuiComponent {
 			component.buildComponent();
 		}
 	}
-
-	@Override
-	public boolean isContainer() {
-		return true;
-	}
 }

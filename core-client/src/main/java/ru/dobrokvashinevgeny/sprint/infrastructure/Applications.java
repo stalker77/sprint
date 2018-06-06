@@ -4,8 +4,9 @@
 
 package ru.dobrokvashinevgeny.sprint.infrastructure;
 
+import ru.dobrokvashinevgeny.sprint.infrastructure.presentation.GxtEnvironment;
 import ru.dobrokvashinevgeny.sprint.infrastructure.presentation.registry.*;
-import ru.dobrokvashinevgeny.sprint.services.*;
+import ru.dobrokvashinevgeny.sprint.services.registry.*;
 
 /**
  * Класс Applications
@@ -15,9 +16,10 @@ public class Applications {
 
 	public static Application createFromConfig() {
 //		LOG.log(Level.SEVERE, "Application.createFromConfig() begin");
-		final ServicesRegistry servicesRegistry = new GwtServicesRegistry();
-		final ViewRegistry viewRegistry = new GxtViewRegistry();
-		final ControllersRegistry controllersRegistry = new GwtControllersRegistry(viewRegistry);
+		final GxtEnvironment environment = new GxtEnvironment();
+		final ViewRegistry viewRegistry = new GxtViewRegistry(environment);
+		final ControllersRegistry controllersRegistry = new GwtControllersRegistry(viewRegistry, environment);
+		final ServicesRegistry servicesRegistry = new GwtServicesRegistry(controllersRegistry);
 
 		return new Application(servicesRegistry, controllersRegistry, viewRegistry);
 //		LOG.log(Level.SEVERE, "Application.createFromConfig() end");

@@ -5,6 +5,7 @@
 package ru.dobrokvashinevgeny.sprint.domain.model;
 
 import ru.dobrokvashinevgeny.sprint.services.*;
+import ru.dobrokvashinevgeny.sprint.services.registry.ControllersRegistry;
 import ru.dobrokvashinevgeny.sprint.services.textbutton.TextButtonController;
 
 /**
@@ -26,5 +27,11 @@ public class TextButton extends GuiComponent {
 	@Override
 	protected void locateInOwnerController(BaseViewContainerController ownerController) {
 		ownerController.addChildView(controller.getView());
+	}
+
+	@Override
+	public ComponentRuntimeInfo getRuntimeInfo() {
+		final BaseView view = controller.getView();
+		return new ComponentRuntimeInfo(view.getId());
 	}
 }

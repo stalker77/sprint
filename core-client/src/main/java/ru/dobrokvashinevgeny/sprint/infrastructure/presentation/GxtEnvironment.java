@@ -67,6 +67,10 @@ public class GxtEnvironment {
 		containersStack.push(container);
 	}
 
+	public void setCurrentViewportWidget(Widget widget) {
+		currentViewport.setWidget(widget);
+	}
+
 	public void showCurrentViewport() {
 		RootPanel.get().add(currentViewport);
 	}
