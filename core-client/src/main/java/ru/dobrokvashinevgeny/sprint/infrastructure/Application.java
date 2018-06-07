@@ -30,8 +30,7 @@ public class Application {
 	}
 
 	public AuthorizedUserController createAuthorizedUserController() {
-		final ApplicationInterfaceService applicationInterfaceService =
-			new ApplicationInterfaceService(servicesRegistry.applicationScopedDisplayEngine());
+		final ApplicationInterfaceService applicationInterfaceService =	new ApplicationInterfaceService();
 
 		final ApplicationModelController applicationModelController =
 			new ApplicationModelController(applicationInterfaceService);
