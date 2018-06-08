@@ -16,4 +16,22 @@ public class Component {
 		this.name = name;
 		this.componentType = componentType;
 	}
+
+	/**
+	 * Возвращает
+	 *
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Возвращает
+	 *
+	 * @return
+	 */
+	public ComponentType getComponentType() {
+		return componentType;
+	}
 }

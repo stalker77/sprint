@@ -26,7 +26,7 @@ public class Container extends GuiComponent {
 
 	}
 
-	protected List<GuiComponent> getChildComponents() {
+	public List<GuiComponent> getChildComponents() {
 		return Collections.unmodifiableList(this.childComponents);
 	}
 }
