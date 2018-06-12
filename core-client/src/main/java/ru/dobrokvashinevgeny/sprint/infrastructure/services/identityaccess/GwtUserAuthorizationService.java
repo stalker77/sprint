@@ -5,15 +5,16 @@
 package ru.dobrokvashinevgeny.sprint.infrastructure.services.identityaccess;
 
 import com.google.gwt.http.client.*;
-import ru.dobrokvashinevgeny.sprint.infrastructure.services.*;
+import ru.dobrokvashinevgeny.sprint.infrastructure.services.GwtRestClientFactory;
 import ru.dobrokvashinevgeny.sprint.services.identityaccess.*;
 
-import java.util.Collections;
+import java.util.logging.*;
 
 /**
  * Класс GwtUserAuthorizationService
  */
 public class GwtUserAuthorizationService {
+	private final static Logger LOG = Logger.getLogger("Main");
 	private static final String AUTH_USER_RESOURCE_URI = "rest/user/current/authorization";
 
 	public void authorizeCurrentUserTo(AuthorizedUserController controller) {
@@ -22,7 +23,9 @@ public class GwtUserAuthorizationService {
 			request.sendRequest("", new RequestCallback() {
 				@Override
 				public void onResponseReceived(Request request, Response response) {
-					controller.onReceiveAuthorization(toUserDescriptor(response.getText()));
+					if (response.getStatusCode() == Response.SC_OK) {
+						controller.onReceiveAuthorization(toUserDescriptor(response.getText()));
+					}
 				}
 
 				@Override
@@ -36,9 +39,15 @@ public class GwtUserAuthorizationService {
 	}
 
 	private UserDescriptor toUserDescriptor(String userDescriptor) {
-		GwtUserDescriptor gwtUserDescriptor = (GwtUserDescriptor) JSON.parse(userDescriptor);
-
-		return new UserDescriptor(Collections.unmodifiableList(Collections.singletonList(gwtUserDescriptor.appCode)));
+		try {
+			LOG.log(Level.SEVERE, "GwtUserAuthorizationService.toUserDescriptor(\"" + userDescriptor + "\") begin");
+			return new GwtUserDescriptor(userDescriptor).asUserDescriptor();
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE, e.toString());
+			throw e;
+		} finally {
+			LOG.log(Level.SEVERE, "GwtUserAuthorizationService.toUserDescriptor() end");
+		}
 		/*JSONValue userDescriptorAsJson = JSONParser.parseStrict(userDescriptor);
 		final JSONObject userDescriptorAsJsonObject = userDescriptorAsJson.isObject();
 		final JSONValue allowedApplicationCodesValue = userDescriptorAsJsonObject.get("allowedApplicationCodes");

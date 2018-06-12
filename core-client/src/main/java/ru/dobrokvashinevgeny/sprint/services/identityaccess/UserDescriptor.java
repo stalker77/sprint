@@ -19,4 +19,11 @@ public class UserDescriptor {
 	public String appCode() {
 		return allowedAppCodeList.get(0);
 	}
+
+	@Override
+	public String toString() {
+		return "UserDescriptor{" +
+			"allowedAppCodeList=" + allowedAppCodeList +
+			'}';
+	}
 }

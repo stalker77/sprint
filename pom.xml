@@ -21,6 +21,7 @@
 
 		<gwt.version>2.8.2</gwt.version>
 		<gxt.version>4.0.0</gxt.version>
+		<gwt.jackson.version>0.15.2</gwt.jackson.version>
 
 		<wildfly.bom.version>12.0.0.Final</wildfly.bom.version>
 		<h2.version>1.4.196</h2.version>
@@ -42,10 +43,30 @@
 				<artifactId>gwt-user</artifactId>
 				<version>${gwt.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>com.google.gwt</groupId>
 				<artifactId>gwt-servlet</artifactId>
 				<version>${gwt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-dev</artifactId>
+				<version>${gwt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-codeserver</artifactId>
+				<version>${gwt.version}</version>
+			</dependency>
+
+			<!-- GWT-Jackson -->
+			<dependency>
+				<groupId>com.github.nmorel.gwtjackson</groupId>
+				<artifactId>gwt-jackson</artifactId>
+				<version>${gwt.jackson.version}</version>
 			</dependency>
 
 			<!-- Sencha GXT -->

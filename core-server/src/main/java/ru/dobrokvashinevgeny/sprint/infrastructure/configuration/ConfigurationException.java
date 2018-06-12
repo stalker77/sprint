@@ -3,7 +3,7 @@ package ru.dobrokvashinevgeny.sprint.infrastructure.configuration;
 /**
  * Класс Configuration
  */
-public class ConfigurationException extends Exception {
+public class ConfigurationException extends RuntimeException {
 	/**
 	 * Создает <code>ConfigurationException</code> с указанным
 	 * детализирующим сообщением.

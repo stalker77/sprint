@@ -15,11 +15,12 @@ import java.util.List;
 public class ComponentApplication {
 	private final ComponentApplicationController controller;
 
-	public ComponentApplication(ControllersRegistry controllersRegistry) {
+	private final List<GuiComponent> childComponentList;
+
+	public ComponentApplication(List<GuiComponent> childComponentList, ControllersRegistry controllersRegistry) {
+		this.childComponentList = childComponentList;
 		this.controller = controllersRegistry.componentApplicationController();
 	}
-
-	private List<GuiComponent> childComponentList;
 
 	public void build() {
 		controller.initDisplaySystem();
@@ -36,7 +37,6 @@ public class ComponentApplication {
 
 			if (isFirstComponent) {
 				controller.putComponentToDisplaySystem(component);
-			} else {
 				isFirstComponent = false;
 			}
 		}

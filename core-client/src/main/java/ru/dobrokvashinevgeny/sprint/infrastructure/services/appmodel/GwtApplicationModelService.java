@@ -2,20 +2,24 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.sprint.infrastructure.services;
+package ru.dobrokvashinevgeny.sprint.infrastructure.services.appmodel;
 
 import com.google.gwt.http.client.*;
 import com.google.gwt.json.client.*;
 import ru.dobrokvashinevgeny.sprint.domain.model.ComponentApplication;
+import ru.dobrokvashinevgeny.sprint.infrastructure.services.*;
 import ru.dobrokvashinevgeny.sprint.services.*;
 import ru.dobrokvashinevgeny.sprint.services.registry.*;
+
+import java.util.logging.*;
 
 /**
  * Класс GwtApplicationModelService
  */
 public class GwtApplicationModelService {
-	private final String APP_BASE_RESOURCE_URI = "rest/application/";
-	private final String APP_MODEL_RESOURCE_URI = "/model/current";
+	private final static Logger LOG = Logger.getLogger("Main");
+	private final static String APP_BASE_RESOURCE_URI = "rest/application/";
+	private final static String APP_MODEL_RESOURCE_URI = "/model/current";
 
 	private final ControllersRegistry controllersRegistry;
 
@@ -24,7 +28,8 @@ public class GwtApplicationModelService {
 	}
 
 	public void appModelFromCodeTo(String appCode, ApplicationModelController controller) {
-		RequestBuilder request = GwtRestClientFactory.createGetRequestTo(appModelResourceFor(appCode));
+		LOG.log(Level.SEVERE, "GwtApplicationModelService.appModelFromCodeTo(\"" + appCode + "\") begin");
+		RequestBuilder request = GwtRestClientFactory.createGetRequestTo(appModelResourceUrlFor(appCode));
 		try {
 			request.sendRequest(toAppCodeAsJsonString(appCode), new RequestCallback() {
 				@Override
@@ -42,7 +47,7 @@ public class GwtApplicationModelService {
 		}
 	}
 
-	private String appModelResourceFor(String appCode) {
+	private String appModelResourceUrlFor(String appCode) {
 		return APP_BASE_RESOURCE_URI + appCode + APP_MODEL_RESOURCE_URI;
 	}
 
@@ -54,7 +59,10 @@ public class GwtApplicationModelService {
 	}
 
 	private ComponentApplication toComponentApplication(String appModelString) {
-		JSONValue appModelDescriptorAsJson = JSONParser.parseStrict(appModelString);
+		LOG.log(Level.SEVERE, "GwtApplicationModelService.toComponentApplication(\"" + appModelString + "\") begin");
+
+		return new JsonComponentApplicationTranslator(appModelString, controllersRegistry).translateToComponentApplication();
+		/*JSONValue appModelDescriptorAsJson = JSONParser.parseStrict(appModelString);
 		JSONObject appModelDescriptorObject = appModelDescriptorAsJson.isObject();
 
 		final String title = getStringPropertyFrom(appModelDescriptorObject, "title");
@@ -62,7 +70,7 @@ public class GwtApplicationModelService {
 		boolean enabled = getBooleanPropertyFrom(appModelDescriptorObject, "enabled");
 		boolean guest = getBooleanPropertyFrom(appModelDescriptorObject, "guest");
 		final String htmlHeader = getStringPropertyFrom(appModelDescriptorObject, "htmlHeader");
-		return new ComponentApplication(/*title, code, enabled, guest, htmlHeader*/ controllersRegistry);
+		return new ComponentApplication(*//*title, code, enabled, guest, htmlHeader*//* childComponentList, controllersRegistry);*/
 	}
 
 	private String getStringPropertyFrom(JSONObject appModelDescriptorObject, String propertyName) {

@@ -4,12 +4,38 @@
 
 package ru.dobrokvashinevgeny.sprint.infrastructure.services.identityaccess;
 
-import jsinterop.annotations.JsType;
+import com.google.gwt.json.client.*;
+import ru.dobrokvashinevgeny.sprint.services.identityaccess.UserDescriptor;
+
+import java.util.Collections;
 
 /**
  * Класс GwtUserDescriptor
  */
-@JsType
+//@JsType
 public class GwtUserDescriptor {
-	public String appCode;
+	private UserDescriptor userDescriptor;
+//	public String appCode;
+
+	public GwtUserDescriptor(String userDescriptor) {
+		parseUserDescriptor(userDescriptor);
+	}
+
+	private void parseUserDescriptor(String userDescriptor) {
+		JSONValue userDescriptorAsJson = JSONParser.parseStrict(userDescriptor);
+		final JSONObject userDescriptorAsJsonObject = userDescriptorAsJson.isObject();
+		final JSONValue appCodeValue = userDescriptorAsJsonObject.get("appCode");
+		final JSONString appCodeString = appCodeValue.isString();
+		String appCode = appCodeString.stringValue();
+
+		this.userDescriptor = new UserDescriptor(
+			Collections.unmodifiableList(
+				Collections.singletonList(appCode)
+			)
+		);
+	}
+
+	public UserDescriptor asUserDescriptor() {
+		return this.userDescriptor;
+	}
 }

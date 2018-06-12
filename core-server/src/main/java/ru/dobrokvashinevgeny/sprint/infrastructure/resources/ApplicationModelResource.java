@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Класс ApplicationModelResource
  */
-@Path("rest/application/{appCode}/model/current")
+@Path("application/{appCode}/model/current")
 public class ApplicationModelResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON + ";" + MediaType.CHARSET_PARAMETER + "=utf-8;")

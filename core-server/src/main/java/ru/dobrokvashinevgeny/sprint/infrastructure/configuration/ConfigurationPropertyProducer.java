@@ -34,7 +34,7 @@ public class ConfigurationPropertyProducer {
 	}
 
 	@PostConstruct
-	private void loadCurrentApplicationConfiguration() throws Exception {
+	private void loadCurrentApplicationConfiguration() {
 		String configFileLocation = getCurrentAppConfigFileLocation();
 
 		parseCurrentAppConfigFrom(configFileLocation);

@@ -4,7 +4,7 @@
 
 package ru.dobrokvashinevgeny.sprint.infrastructure.presentation.registry;
 
-import ru.dobrokvashinevgeny.sprint.infrastructure.services.GwtApplicationModelService;
+import ru.dobrokvashinevgeny.sprint.infrastructure.services.appmodel.GwtApplicationModelService;
 import ru.dobrokvashinevgeny.sprint.services.registry.*;
 
 /**
